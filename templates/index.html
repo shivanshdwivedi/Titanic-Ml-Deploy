@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Titanic Tragedy Analysis</h1>
+	
+	<div>
+	
+	<div>
+	 Please Select values as mentioned:-
+	 
+	 <div>
+	<b>Sex</b><br>
+	 Male - 1
+	 Female - 0
+	 </div>
+	 
+	
+	 <br>
+	 <div>
+	 	<b> Passsenger Class</b> <br>
+ 	 Low Class Ticket - 1
+	 Medium Class Ticket - 2
+	 High Class Ticket - 3
+	 </div>
+	 <br>
+
+	 
+	 <div>
+	 <b>  Embarkmet </b>  <br>
+	 S - 0(Safe)
+	 P - 1
+	 C - 2(Not Safe)
+	 </div>
+	 <br>
+	
+	 
+	 <div>
+	 <b> Age </b>
+	 <br>
+	 Minimum - 0.42 yr
+	 Maximum - 80yrs
+	 </div>
+	 
+	 <br>
+	 
+	 <div>
+	 <b> Fare </b> <br>
+	 Minimum - Rs0
+	 Maximum - Rs512
+	 </div>
+	 
+	
+	 
+	 <br>
+	 <br>
+	 <br>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    
+    <div> <input type="number" name="Sex" placeholder="Sex" required="required" /> </div>
+    <br>
+    <br>
+    <div> <input type="number" name="Pclass" placeholder="Passenger Class" required="required" /></div>
+    <br>
+    <br>
+    <div><input type="number" name="Embarked" placeholder="Embarkment" required="required" /></div>
+    <br>
+    <br>
+    <div><input type="number" name="Age" placeholder="Age" required="required" /></div>
+    <br>
+    <br>
+    <div><input type="number" name="Fare" placeholder="Fare" required="required" /></div>
+    <br>
+    <br>
+    <div><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></div>
+    	
+       
+		
+		
+		
+        
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <br>
+   <br>
+   0 :- Dead
+   1 :- Alive
+
+ </div>
+
+
+</body>
+</html>
